@@ -9,26 +9,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-public class LoginPageSteps extends BasePage {
+public class LoginPageSteps {
 
     public static WebDriver driver;
     protected PageObject pageFactory;
 
-    @Before
-    public void launch(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        pageFactory = new PageObject();
-        driver.manage().window().maximize();
-    }
-
-    @After
-    public void closeAll(){
-        driver.quit();
-    }
 
     @Given("^User is on Login Page$")
     public void User_is_on_Login_Page() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        pageFactory = new PageObject(driver);
+        driver.manage().window().maximize();
         driver.navigate().to("https://www.saucedemo.com/");
     }
 
@@ -47,7 +39,7 @@ public class LoginPageSteps extends BasePage {
     public void User_is_on_Inventory_page() {
         String act = driver.getCurrentUrl();
         String ext = "https://www.saucedemo.com/inventory.html";
-        driver.navigate().back();
+        driver.close();
         Assert.assertEquals(ext, act);
     }
 

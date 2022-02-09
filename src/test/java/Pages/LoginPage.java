@@ -9,14 +9,12 @@ import static stepDefinition.LoginPageSteps.driver;
 
 public class LoginPage {
 
-    @FindBy (id="user-name")
+    @FindBy(id = "user-name")
     private WebElement username;
     @FindBy (id="password")
-    private
-    WebElement password;
+    private WebElement password;
     @FindBy (id="login-button")
-    private
-    WebElement submit;
+    private WebElement submit;
 
     public LoginPage(){
         PageFactory.initElements(driver, this);
