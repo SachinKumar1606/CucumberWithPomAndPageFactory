@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import static java.time.Duration.*;
-import static stepDefinition.HomePageSteps.driver;
+import static stepDefinition.BaseSteps.driver;
 
 public class HomePageStdUser {
 
@@ -56,7 +56,7 @@ public class HomePageStdUser {
     //Locators of images
     @FindBy(id="item_4_img_link")
     private WebElement bagPackPic;
-    @FindBy(id="item_0_img_link")
+    @FindBy(xpath = "//a[@id='item_0_img_link']")
     private WebElement bikeLightPic;
     @FindBy(id="item_1_img_link")
     private WebElement tShirtPic;
@@ -64,7 +64,7 @@ public class HomePageStdUser {
     private WebElement jacketPic;
     @FindBy(id="item_2_img_link")
     private WebElement onesiePic;
-    @FindBy(id="item_3_title_link")
+    @FindBy(id="item_3_img_link")
     private WebElement jactRedPicketPic;
 
     //Locators add to cart
@@ -171,6 +171,7 @@ public class HomePageStdUser {
         bagPackPic.click();
         String exp = "https://www.saucedemo.com/inventory-item.html?id=4";
         String act = driver.getCurrentUrl();
+        driver.navigate().back();
         soft.assertEquals(act,exp);
         soft.assertAll();
     }
@@ -179,6 +180,7 @@ public class HomePageStdUser {
         bikeLightPic.click();
         String exp = "https://www.saucedemo.com/inventory-item.html?id=0";
         String act = driver.getCurrentUrl();
+        driver.navigate().back();
         soft.assertEquals(act,exp);
         soft.assertAll();
     }
@@ -187,6 +189,7 @@ public class HomePageStdUser {
         tShirtPic.click();
         String exp = "https://www.saucedemo.com/inventory-item.html?id=1";
         String act = driver.getCurrentUrl();
+        driver.navigate().back();
         soft.assertEquals(act,exp);
         soft.assertAll();
     }
@@ -195,6 +198,7 @@ public class HomePageStdUser {
         jacketPic.click();
         String exp = "https://www.saucedemo.com/inventory-item.html?id=5";
         String act = driver.getCurrentUrl();
+        driver.navigate().back();
         soft.assertEquals(act,exp);
         soft.assertAll();
     }
@@ -203,6 +207,7 @@ public class HomePageStdUser {
         jactRedPicketPic.click();
         String exp = "https://www.saucedemo.com/inventory-item.html?id=3";
         String act = driver.getCurrentUrl();
+        driver.navigate().back();
         soft.assertEquals(act,exp);
         soft.assertAll();
     }
@@ -211,6 +216,7 @@ public class HomePageStdUser {
         onesiePic.click();
         String exp = "https://www.saucedemo.com/inventory-item.html?id=2";
         String act = driver.getCurrentUrl();
+        driver.navigate().back();
         soft.assertEquals(act,exp);
         soft.assertAll();
     }
@@ -248,6 +254,10 @@ public class HomePageStdUser {
         soft.assertAll();
     }
 
+    public void setCart(){
+        cart.click();
+    }
+
     public void settRedCart(){
         tRedCart.click();
         String act = tRedRemove.getText();
@@ -276,6 +286,7 @@ public class HomePageStdUser {
             if (!parent.equals(child_window)) {
                 driver.switchTo().window(child_window);
                 String act = driver.switchTo().window(child_window).getCurrentUrl();
+                driver.close();
                 driver.switchTo().window(parent);
             }
         }
