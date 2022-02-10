@@ -12,6 +12,7 @@ public class PageObject {
 
     private LoginPage loginPage;
     private HomePageStdUser homePageStdUser;
+    private Cart_Page cartPage;
 
     public LoginPage getLoginPage(){
         if(loginPage == null){
@@ -20,10 +21,17 @@ public class PageObject {
         return loginPage;
     }
 
-    public HomePageStdUser getHomePageStdUser(){
+    public HomePageStdUser getHomePageStdUser() {
         if(homePageStdUser == null){
             homePageStdUser = new HomePageStdUser();
         }
         return homePageStdUser;
+    }
+
+    public Cart_Page getCartPage() {
+        if(cartPage == null){
+            cartPage = new Cart_Page();
+        }
+        return cartPage;
     }
 }

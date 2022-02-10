@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static stepDefinition.LoginPageSteps.driver;
+import static stepDefinition.BaseSteps.driver;
 
 
 public class LoginPage {

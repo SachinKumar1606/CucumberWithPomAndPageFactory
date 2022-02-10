@@ -1,26 +1,14 @@
 package stepDefinition;
 
-import Pages.PageObject;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import static stepDefinition.BaseSteps.driver;
+import static stepDefinition.BaseSteps.pageFactory;
 
 public class LoginPageSteps {
 
-    public static WebDriver driver;
-    protected PageObject pageFactory;
-
-
     @Given("^User is on Login Page$")
     public void User_is_on_Login_Page() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        pageFactory = new PageObject(driver);
-        driver.manage().window().maximize();
         driver.navigate().to("https://www.saucedemo.com/");
     }
 
@@ -39,7 +27,6 @@ public class LoginPageSteps {
     public void User_is_on_Inventory_page() {
         String act = driver.getCurrentUrl();
         String ext = "https://www.saucedemo.com/inventory.html";
-        driver.close();
         Assert.assertEquals(ext, act);
     }
 
