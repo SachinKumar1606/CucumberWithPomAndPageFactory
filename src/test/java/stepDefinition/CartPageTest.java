@@ -160,4 +160,13 @@ public class CartPageTest {
         String act = driver.findElement(By.className("title")).getText();
         Assert.assertEquals(act, exp);
     }
+
+    @Given ("User is on the Inventory Page with {string} and {string}")
+    public void newLogin(String uName, String Pass){
+        driver.navigate().to("https://www.saucedemo.com/");
+        pageFactory.getLoginPage().setUsername(uName);
+        pageFactory.getLoginPage().setPassword(Pass);
+        pageFactory.getLoginPage().setSubmit();
+    }
+
 }
