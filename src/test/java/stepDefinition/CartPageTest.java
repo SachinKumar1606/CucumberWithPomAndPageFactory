@@ -1,6 +1,9 @@
 package stepDefinition;
 
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
@@ -89,16 +92,57 @@ public class CartPageTest {
         Assert.assertEquals(act, exp);
     }
 
-    @When ("Click on links of the product tRed")
-    public void productPagetRed(){
+    @When("Click on links of the product tRed")
+    public void productPagetRed() {
         pageFactory.getHomePageStdUser().settRedCart();
     }
 
-    @Then ("User is on tRed Page")
-    public void cartLogouttRed(){
+    @Then("User is on tRed Page")
+    public void cartLogouttRed() {
         pageFactory.getCartPage().setpName();
         String act = driver.findElement(By.className("inventory_details_name")).getText();
         String exp = "Test.allTheThings() T-Shirt (Red)";
         Assert.assertEquals(act, exp);
+    }
+
+    @When("Again click on the add to cart and move to cart page Bike Light")
+    public void again_click_on_the_add_to_cart_and_move_to_cart_page_bike_light() {
+        pageFactory.getHomePageStdUser().setCart();
+
+    }
+
+    @When("Click on remove button on cart page")
+    public void click_on_remove_button_on_cart_page() {
+        pageFactory.getCartPage().setRemove();
+    }
+
+    @When("Again click on the add to cart and move to cart page tShirt")
+    public void again_click_on_the_add_to_cart_and_move_to_cart_page_t_shirt() {
+        pageFactory.getHomePageStdUser().setCart();
+    }
+
+    @When("Again click on the add to cart and move to cart page Jacket")
+    public void again_click_on_the_add_to_cart_and_move_to_cart_page_jacket() {
+        pageFactory.getHomePageStdUser().setCart();
+    }
+
+    @When("Again click on the add to cart and move to cart page BackPack")
+    public void again_click_on_the_add_to_cart_and_move_to_cart_page_back_pack() {
+        pageFactory.getHomePageStdUser().setCart();
+    }
+
+    @When("Again click on the add to cart and move to cart page Onesie")
+    public void again_click_on_the_add_to_cart_and_move_to_cart_page_onesie() {
+        pageFactory.getHomePageStdUser().setCart();
+    }
+
+    @When("Again click on the add to cart and move to cart page tRed")
+    public void again_click_on_the_add_to_cart_and_move_to_cart_page_t_red() {
+        pageFactory.getHomePageStdUser().setCart();
+    }
+
+    @Then("User is on Home Page again")
+    public void user_is_on_home_page_again() {
+        pageFactory.getCartPage().setHome();
     }
 }

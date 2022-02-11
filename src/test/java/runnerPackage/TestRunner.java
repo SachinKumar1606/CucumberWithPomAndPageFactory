@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
         features = {"src\\test\\java\\features"},
         glue = {"stepDefinition"},
         plugin = {"pretty", "html:target/cucumber-reports.html"},
+//        dryRun = true,
         monochrome = true
 )
 
