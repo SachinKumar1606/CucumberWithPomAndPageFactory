@@ -145,4 +145,19 @@ public class CartPageTest {
     public void user_is_on_home_page_again() {
         pageFactory.getCartPage().setHome();
     }
+
+    @When("Again click on the add to cart")
+    public void again_click_on_the_add_to_cart() {
+        pageFactory.getHomePageStdUser().setCart();
+    }
+    @When("Click on CheckOut button")
+    public void click_on_check_out_button() {
+        pageFactory.getCartPage().setCheckout();
+    }
+    @Then("User should be on your cart page")
+    public void user_should_be_on_your_cart_page() {
+        String exp = "CHECKOUT: YOUR INFORMATION";
+        String act = driver.findElement(By.className("title")).getText();
+        Assert.assertEquals(act, exp);
+    }
 }

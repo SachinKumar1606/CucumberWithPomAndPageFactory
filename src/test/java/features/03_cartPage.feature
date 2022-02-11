@@ -77,3 +77,45 @@ Feature: Cart Page
     And Again click on the add to cart and move to cart page tRed
     And Click on remove button on cart page
     Then User is on Home Page again
+
+  Scenario: Successful buying product
+    Given User is on the Inventory Page
+    When Click on links of the product BackPack
+    And Again click on the add to cart
+    And Click on CheckOut button
+    Then User should be on your cart page
+
+  Scenario: Successful buying product
+    Given User is on the Inventory Page
+    When Click on links of the product BikeLight
+    And Again click on the add to cart
+    And Click on CheckOut button
+    Then User should be on your cart page
+
+  Scenario: Successful buying product
+    Given User is on the Inventory Page
+    When Click on links of the product tShirt
+    And Again click on the add to cart
+    And Click on CheckOut button
+    Then User should be on your cart page
+
+  Scenario: Successful buying product
+    Given User is on the Inventory Page
+    When Click on links of the product Jacket
+    And Again click on the add to cart
+    And Click on CheckOut button
+    Then User should be on your cart page
+
+  Scenario: Successful buying product
+    Given User is on the Inventory Page
+    When Click on links of the product Onesie
+    And Again click on the add to cart
+    And Click on CheckOut button
+    Then User should be on your cart page
+
+  Scenario: Successful buying product
+    Given User is on the Inventory Page
+    When Click on links of the product tRed
+    And Again click on the add to cart
+    And Click on CheckOut button
+    Then User should be on your cart page
